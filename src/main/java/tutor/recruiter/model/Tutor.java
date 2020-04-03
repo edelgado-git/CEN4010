@@ -1,32 +1,29 @@
 package tutor.recruiter.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "tutor")
+@Table(name = "TUTOR")
 public class Tutor {
-
-	private long id;
-	private String firstName;
-	private String lastName;
-	private String emailId;
-
-	public Tutor() {
-	}
-
-	public Tutor(String firstName, String lastName, String emailId) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.emailId = emailId;
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+
+	@Column(name = "name", nullable = false)
+	private String name;
+
+	@JoinColumn(name = "SUBJECT", referencedColumnName = "ID")
+	@ManyToOne
+	private Subject subject;
+
+	@Column(name = "rate", nullable = false)
+	private double rate;
+
+	@JoinColumn(name = "ZIP", referencedColumnName = "CODE")
+	@ManyToOne
+	private Zipcode zipcode;
+
 	public long getId() {
 		return id;
 	}
@@ -34,35 +31,41 @@ public class Tutor {
 		this.id = id;
 	}
 
-	@Column(name = "first_name", nullable = false)
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	@Column(name = "last_name", nullable = false)
-	public String getLastName() {
-		return lastName;
+	public Subject getSubject() {
+		return subject;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 
-	@Column(name = "email_address", nullable = false)
-	public String getEmailId() {
-		return emailId;
+	public double getRate() {
+		return rate;
 	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+
+	public void setRate(double rate) {
+		this.rate = rate;
+	}
+
+	public Zipcode getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(Zipcode zipcode) {
+		this.zipcode = zipcode;
 	}
 
 	@Override
 	public String toString() {
-		return "Tutor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId + "]";
+		return "Tutor [id=" + id + ", name=" + name + ", subject=" + subject.getName();
 	}
 
 }

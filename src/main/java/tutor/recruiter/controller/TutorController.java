@@ -52,9 +52,10 @@ public class TutorController {
 		Tutor tutor = tutorRepository.findById(tutorId)
 				.orElseThrow(() -> new ResourceNotFoundException("Tutor not found for this id :: " + tutorId));
 
-		tutor.setEmailId(tutorDetails.getEmailId());
-		tutor.setLastName(tutorDetails.getLastName());
-		tutor.setFirstName(tutorDetails.getFirstName());
+		tutor.setName(tutorDetails.getName());
+		tutor.setRate(tutorDetails.getRate());
+		tutor.setZipcode(tutorDetails.getZipcode());
+		tutor.setSubject(tutorDetails.getSubject());
 
 		Tutor updatedTutor = tutorRepository.save(tutor);
 
