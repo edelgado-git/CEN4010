@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.guides.springboot2</groupId>
-	<artifactId>springboot2-mssql-jpa-hibernate-crud-example</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>tutorrecruiter</artifactId>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>springboot2-mssql-jpa-hibernate-crud-example</name>
-	<description>springboot2-mssql-jpa-hibernate-crud-example</description>
+	<name>Tutor Recruiter</name>
+	<description>Tutor Recruiter Web Application</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -40,7 +40,7 @@
             <artifactId>sqljdbc4</artifactId>
             <version>4.0</version>
         </dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
