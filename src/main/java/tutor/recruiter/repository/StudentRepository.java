@@ -2,10 +2,9 @@ package tutor.recruiter.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import tutor.recruiter.model.Tutor;
+import tutor.recruiter.model.Student;
 
 @Repository
-public interface TutorRepository extends JpaRepository<Tutor, Long> {
+public interface StudentRepository extends JpaRepository<Student, Long> {
 
 }
